@@ -50,7 +50,7 @@ namespace DailyAPP.WebAPI.Controllers
                 //    Pwd = accountInfoDTO.Pwd
                 //};
                 AccountInfo accountInfo = mapper.Map<AccountInfo>(accountInfoDTO);
-
+                accountInfo.Pwd = BCryptTools.BCryptHelper.HashPassword(accountInfoDTO.Pwd);//密码加密
                 db.AccountInfo.Add(accountInfo);
                 int row = db.SaveChanges();//保存
                 if(row > 0)
@@ -90,7 +90,7 @@ namespace DailyAPP.WebAPI.Controllers
                 res.msg = "账号不存在";
                 return Ok(res);
             }
-            if(!string.Equals(dbAccount.Pwd,password))
+            if (!BCryptTools.BCryptHelper.VerifyPassword(password, dbAccount.Pwd))
             {
                 res.ResultCode = -1;
                 res.msg = "密码错误";
@@ -98,12 +98,7 @@ namespace DailyAPP.WebAPI.Controllers
             }
             res.ResultCode = 200;
             res.msg = "登录成功";
-            res.ResultData = new AccountInfo()
-            {
-                Account = dbAccount.Account,
-                AccountId = dbAccount.AccountId,
-                Name = dbAccount.Name
-            };
+            res.ResultData = mapper.Map<AccountInfoDTO>(dbAccount);
             return Ok(res);
         }
     }

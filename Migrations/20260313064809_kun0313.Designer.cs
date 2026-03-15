@@ -3,6 +3,7 @@ using System;
 using DailyAPP.WebAPI.DataModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DailyAPP.WebAPI.Migrations
 {
     [DbContext(typeof(DailyDbContext))]
-    partial class DailyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260313064809_kun0313")]
+    partial class kun0313
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.36");

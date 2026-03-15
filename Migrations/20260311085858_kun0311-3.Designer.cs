@@ -3,6 +3,7 @@ using System;
 using DailyAPP.WebAPI.DataModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DailyAPP.WebAPI.Migrations
 {
     [DbContext(typeof(DailyDbContext))]
-    partial class DailyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260311085858_kun0311-3")]
+    partial class kun03113
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.36");
@@ -38,34 +40,6 @@ namespace DailyAPP.WebAPI.Migrations
                     b.HasKey("AccountId");
 
                     b.ToTable("AccountInfo");
-                });
-
-            modelBuilder.Entity("DailyAPP.WebAPI.DataModel.MemoInfo", b =>
-                {
-                    b.Property<int>("MemoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AccountId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("MemoId");
-
-                    b.ToTable("MemoInfo");
                 });
 
             modelBuilder.Entity("DailyAPP.WebAPI.DataModel.MenuInfo", b =>

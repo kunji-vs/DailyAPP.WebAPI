@@ -18,5 +18,12 @@ namespace DailyAPP.WebAPI.DataModel
 
 
         public virtual DbSet<AccountInfo> AccountInfo {  get; set; }
+        public virtual DbSet<MenuInfo> MenuInfos {  get; set; }
+        public virtual DbSet<WaitInfo> WaitInfos {  get; set; }
+        public virtual DbSet<MemoInfo> MemoInfos {  get; set; }
+
+
+
+
     }
 }

@@ -9,7 +9,9 @@ namespace DailyAPP.WebAPI.AutoMappers
         public AutoMapperSettings()
         {
             CreateMap<AccountInfoDTO, AccountInfo>().ReverseMap();
-            CreateMap<AccountInfo, AccountInfoDTO>().ReverseMap();
+            CreateMap<MenuInfo, MenuInfoDTO>().ReverseMap();
+            CreateMap<WaitInfoDTO, WaitInfo>().ReverseMap();
+            CreateMap<MemoInfo, MemoInfoDTO>().ReverseMap();
         }
     }
 }

@@ -5,6 +5,7 @@
     /// </summary>
     public class AccountInfoDTO
     {
+        public int AccountId { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>
